@@ -37,14 +37,15 @@ authRouter.post('/login', async (req, res) => {
     );
 
     return res.json({
-      token,
-      user: {
-        id: ADMIN_USER.id,
-        username: ADMIN_USER.username,
-        role: ADMIN_USER.role,
-        name: ADMIN_USER.name,
-      },
-    });
+  accessToken: token,
+  user: {
+    id: ADMIN_USER.id,
+    username: ADMIN_USER.username,
+    role: ADMIN_USER.role,
+    name: ADMIN_USER.name,
+  },
+});
+
   } catch (error) {
     return res.status(500).json({
       message: 'Login failed',
