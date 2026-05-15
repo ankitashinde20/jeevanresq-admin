@@ -59,4 +59,4 @@ router.post('/forgot-password', async (req, res) => {
   });
 });
 
-export default router;
+export const authRouter = router;
