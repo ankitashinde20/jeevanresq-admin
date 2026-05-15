@@ -1,0 +1,18 @@
+services:
+  - type: web
+    name: jeevanresq-admin-api
+    env: node
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: JWT_SECRET
+        generateValue: true
+      - key: JWT_EXPIRES_IN
+        value: 8h
+      - key: CLIENT_ORIGIN
+        value: https://your-vercel-dashboard-url.vercel.app
+      - key: DATABASE_DRIVER
+        value: memory
