@@ -1,7 +1,7 @@
 import express from 'express';
 import jwt from 'jsonwebtoken';
 
-const router = express.Router();
+export const authRouter = express.Router();
 
 const ADMIN_USER = {
   id: 'super-admin',
@@ -11,7 +11,7 @@ const ADMIN_USER = {
   name: 'JeevanResQ Super Admin',
 };
 
-router.post('/login', async (req, res) => {
+authRouter.post('/login', async (req, res) => {
   try {
     const { username, password } = req.body;
 
@@ -53,10 +53,8 @@ router.post('/login', async (req, res) => {
   }
 });
 
-router.post('/forgot-password', async (req, res) => {
+authRouter.post('/forgot-password', async (req, res) => {
   return res.json({
     message: 'Password reset request received',
   });
 });
-
-export const authRouter = router;
